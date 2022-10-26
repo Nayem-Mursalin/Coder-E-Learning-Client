@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
+import { Image } from 'react-bootstrap';
 
 const Header = () => {
     const { user } = useContext(AuthContext);
@@ -17,11 +19,14 @@ const Header = () => {
                         <Nav.Link href="/courses">Courses</Nav.Link>
                         <Nav.Link href="#features">Blog</Nav.Link>
                         <Nav.Link href="#pricing">FAQ</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
+                            {user?.photoURL ?
+                                <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image>
+                                : <FaUser></FaUser>}
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
