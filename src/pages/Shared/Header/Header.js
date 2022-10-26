@@ -5,9 +5,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <Navbar collapseOnSelect className='mb-5' expand="lg" bg="light" variant="light">
             <Container>
@@ -22,7 +28,21 @@ const Header = () => {
                         <Nav.Link href="/login">Login</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+                        <>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <button variant='light' onClick={handleLogout}>Logout</button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login'>Login</Link>
+                                        <Link to='/register'>Register</Link>
+                                    </>
+                            }
+
+                        </>
                         <Nav.Link eventKey={2} href="#memes">
                             {user?.photoURL ?
                                 <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image>
