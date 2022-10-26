@@ -6,6 +6,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const Header = () => {
                                 user?.uid ?
                                     <>
                                         <span>{user?.displayName}</span>
-                                        <button variant='light' onClick={handleLogout}>Logout</button>
+                                        <Button variant='light' onClick={handleLogout}>Logout</Button>
                                     </>
                                     :
                                     <>
