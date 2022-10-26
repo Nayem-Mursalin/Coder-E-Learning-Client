@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import LeftSideNav from '../LeftSideNav.js/LeftSideNav';
+import LeftSideNav from '../../LeftSideNav/LeftSideNav';
 
 const Header = () => {
     return (
@@ -12,9 +12,10 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Courses</Nav.Link>
+                        <Nav.Link href="#course">Home</Nav.Link>
+                        <Nav.Link href="/courses">Courses</Nav.Link>
                         <Nav.Link href="#features">Blog</Nav.Link>
-                        <Nav.Link href="#pricing">F.A.Q.</Nav.Link>
+                        <Nav.Link href="#pricing">FAQ</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">More deets</Nav.Link>
@@ -22,9 +23,6 @@ const Header = () => {
                             Dank memes
                         </Nav.Link>
                     </Nav>
-                    <div className='d-lg-none'>
-                        <LeftSideNav></LeftSideNav>
-                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
