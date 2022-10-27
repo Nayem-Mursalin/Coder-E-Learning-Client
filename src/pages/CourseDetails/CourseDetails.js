@@ -12,7 +12,7 @@ const Category = () => {
 
 
     return (
-        <div>
+        <div className='mb-5'>
             <h2>This is {course[0].title}</h2>
             <Card style={{ width: '50rem' }} className='mb-5'>
                 <Card.Header className='d-flex'>
