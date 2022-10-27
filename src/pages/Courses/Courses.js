@@ -44,7 +44,7 @@ const Courses = () => {
                                                     <>{category.description}</>
                                                 }
                                             </Card.Text>
-                                            <Button variant="light"> <Link to={`/courses/${category.id}`}>Get Premium Access</Link></Button>
+                                            <Button variant="light"> <Link to={`/courses/${category.id}`}>See Details</Link></Button>
                                         </Card.Body>
                                     </Card>
                                 )
