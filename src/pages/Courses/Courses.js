@@ -24,23 +24,24 @@ const Courses = () => {
                 </Col>
                 <Col lg="9">
                     <div>
-                        <h4>My All Courses Lenght is {categories.length}</h4>
-                        <div className='container text-center row'>
+                        <h2>Our All Courses</h2>
+                        <div className='container text-center row justify-content-evenly'>
                             {
                                 // categories.map(category => <p key={category.id}>
                                 //     <Link to={`/category/${category.id}`}>{category.name}</Link>
                                 // </p>)
                                 categories.map(category =>
-                                    <div className='col-sm-12 col-lg-4'>
+                                    <div className='col-sm-12 col-md-6 col-lg-4'>
                                         <Card style={{ width: '18rem' }} key={category.id}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
+                                            <Card.Img style={{ width: 200 }}
+                                                variant="top" src={category.img_url} />
                                             <Card.Body>
                                                 <Card.Title>
                                                     {category.name}
                                                 </Card.Title>
                                                 <Card.Text>
-                                                    {category.description > 100 ?
-                                                        <>{category.description.slice(0, 100) + '....'} <Link to={`/courses/${category.id}`}>See Details</Link></>
+                                                    {category.description > 50 ?
+                                                        <>{category.description.slice(0, 50) + '....'} <Link to={`/courses/${category.id}`}>See Details</Link></>
                                                         :
                                                         <>{category.description}</>
                                                     }
