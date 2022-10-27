@@ -9,7 +9,8 @@ const Home = () => {
             <h1>Coder</h1><br></br>
             <h1>E-Learnig</h1><br></br>
             <h1>Platform</h1><br></br>
-            <h3>For Courses, Go To <Link to='/courses'>Courses</Link>  Section</h3>
+            <h3>We believe in you......</h3><br></br>
+            <h3>Because You Are a Genius</h3><br></br>
         </div>
     );
 };
