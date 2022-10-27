@@ -7,6 +7,8 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import CheckOut from "../pages/CheckOut/CheckOut";
+import FAQ from "../pages/FAQ/FAQ";
+import Blog from "../pages/Blog/Blog";
 
 export const routes = createBrowserRouter([
     {
@@ -39,6 +41,14 @@ export const routes = createBrowserRouter([
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://code-e-learning-server-nayem-mursalin.vercel.app/course/${params.id}`)
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }

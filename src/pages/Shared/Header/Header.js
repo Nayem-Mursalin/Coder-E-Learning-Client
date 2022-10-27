@@ -7,6 +7,7 @@ import { FaUser } from 'react-icons/fa';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -24,10 +25,19 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/courses">Courses</Nav.Link>
-                        <Nav.Link href="#features">Blog</Nav.Link>
-                        <Nav.Link href="#pricing">FAQ</Nav.Link>
+                        <Nav.Link href="/blog">Blog</Nav.Link>
+                        <Nav.Link href="/faq">FAQ</Nav.Link>
+
                     </Nav>
+
                     <Nav>
+                        <div className='me-3'>
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Dark-Theme"
+                            />
+                        </div>
                         <>
                             {
                                 user?.uid ?
