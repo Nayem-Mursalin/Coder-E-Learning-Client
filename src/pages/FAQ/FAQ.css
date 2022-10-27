@@ -1,16 +1,16 @@
-.blog{
+.blogf{
     margin-top: 40px;
-    background-color: rgb(255, 255, 204);
+    background-color: rgb(207, 252, 252);
     padding: 10px 50px;
     padding-bottom: 30px;
     margin-bottom: 80px;
 }
-.blog-header{
+.blog-headerf{
     text-align: center;
-    color: blue;
+    color: rgb(169, 7, 7);
 }
-.blog-section{
-    background-color: antiquewhite;
+.blog-sectionf{
+    background-color: rgb(251, 218, 250);
     padding: 5px 25px;
     margin-bottom: 15px;
     border-radius: 20px;
