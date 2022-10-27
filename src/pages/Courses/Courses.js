@@ -25,13 +25,13 @@ const Courses = () => {
                 <Col lg="9">
                     <div>
                         <h2>Our All Courses</h2>
-                        <div className='container text-center row justify-content-evenly'>
+                        <div className='container text-center row justify-content-evenly mb-5 pb-5'>
                             {
                                 // categories.map(category => <p key={category.id}>
                                 //     <Link to={`/category/${category.id}`}>{category.name}</Link>
                                 // </p>)
                                 categories.map(category =>
-                                    <div className='col-sm-12 col-md-6 col-lg-4'>
+                                    <div className='col-sm-11 col-md-5 col-lg-3 m-2'>
                                         <Card style={{ width: '18rem' }} key={category.id}>
                                             <Card.Img style={{ width: 200 }}
                                                 variant="top" src={category.img_url} />

@@ -14,7 +14,7 @@ const Category = () => {
     return (
         <div>
             <h2>This is {course[0].title}</h2>
-            <Card style={{ width: '50rem' }}>
+            <Card style={{ width: '50rem' }} className='mb-5'>
                 <Card.Header className='d-flex'>
                     <div className='me-2'>{course[0].title}</div>
                     <div className=''>
@@ -24,14 +24,14 @@ const Category = () => {
                                     <Button onClick={toPdf}>Generate pdf</Button>
                                 )}
                             </ReactToPdf>
-                            <div ref={ref} >
+                            <div ref={ref} className="d-none">
                                 <p> {course[0].description} </p>
                             </div>
                         </div>
                     </div>
 
                 </Card.Header>
-                <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                <Card.Img style={{ width: 200 }} variant="top" src={course[0].img_url} />
                 <Card.Body>
                     <Card.Title>{course[0].title}</Card.Title>
                     <Card.Text>
@@ -39,8 +39,8 @@ const Category = () => {
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                    <ListGroup.Item>Instructor: ${course[0].instructor}</ListGroup.Item>
+                    <ListGroup.Item>Total Enrolled: ${course[0].total_enrolled}</ListGroup.Item>
                     <ListGroup.Item>Price: ${course[0].price}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
