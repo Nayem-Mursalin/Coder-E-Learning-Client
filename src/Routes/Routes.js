@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home";
-import Category from "../pages/Category/Category"
+import CourseDetails from "../pages/CourseDetails/CourseDetails"
 import Courses from "../pages/Courses/Courses";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -16,12 +17,9 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/category/:id',
-                element: <Category></Category>
-            },
-            {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                // loader: fetch(`https://code-e-learning-server-nayem-mursalin.vercel.app/allcourses`)
             },
             {
                 path: '/login',
@@ -30,6 +28,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/courses/:id',
+                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://code-e-learning-server-nayem-mursalin.vercel.app/course/${params.id}`)
             }
         ]
     }

@@ -10,10 +10,12 @@ const Courses = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('https://code-e-learning-server-nayem-mursalin.vercel.app/course-categories')
+        fetch('https://code-e-learning-server-nayem-mursalin.vercel.app/allcourses')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
+
+    console.log(categories);
     return (
         <Container>
             <Row>
@@ -36,9 +38,13 @@ const Courses = () => {
                                                 <Link to={`/category/${category.id}`}>{category.name}</Link>
                                             </Card.Title>
                                             <Card.Text>
-                                                {category.description}
+                                                {category.description > 100 ?
+                                                    <>{category.description.slice(0, 100) + '....'} <Link to={`/courses/${category.id}`}>See Details</Link></>
+                                                    :
+                                                    <>{category.description}</>
+                                                }
                                             </Card.Text>
-                                            <Button variant="primary">Get Premium Access</Button>
+                                            <Button variant="primary"> <Link to={`/courses/${category.id}`}>Get Premium Access</Link></Button>
                                         </Card.Body>
                                     </Card>
                                 )
