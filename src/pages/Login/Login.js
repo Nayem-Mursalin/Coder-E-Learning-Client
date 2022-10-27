@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -71,6 +71,7 @@ const Login = () => {
                 </Form.Text>
             </Form>
             <button onClick={handleGoogleSignIn}>Google Login</button>
+            <p>New to Coder E Learning? <Link to='/register'>Create a new Account</Link></p>
         </div>
     );
 };
