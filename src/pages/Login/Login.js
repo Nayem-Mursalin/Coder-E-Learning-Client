@@ -99,8 +99,8 @@ const Login = () => {
                     {error}
                 </Form.Text>
             </Form>
-            <Button variant='warning' onClick={handleGoogleSignIn}>Google Login</Button>
-            <Button variant='warning' onClick={handleGithubSignIn}>Github Signin</Button>
+            <Button variant='warning' onClick={handleGoogleSignIn} className='me-1 my-2'>Google Login</Button>
+            <Button variant='warning' onClick={handleGithubSignIn} className='mx-1 my-2'>Github Signin</Button>
             <p>New to Coder E Learning? <Link to='/register'>Create a new Account</Link></p>
         </div >
     );
