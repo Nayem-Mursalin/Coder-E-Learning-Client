@@ -25,28 +25,31 @@ const Courses = () => {
                 <Col lg="9">
                     <div>
                         <h4>My All Courses Lenght is {categories.length}</h4>
-                        <div>
+                        <div className='container text-center row'>
                             {
                                 // categories.map(category => <p key={category.id}>
                                 //     <Link to={`/category/${category.id}`}>{category.name}</Link>
                                 // </p>)
                                 categories.map(category =>
-                                    <Card style={{ width: '18rem' }} key={category.id}>
-                                        <Card.Img variant="top" src="holder.js/100px180" />
-                                        <Card.Body>
-                                            <Card.Title>
-                                                {category.name}
-                                            </Card.Title>
-                                            <Card.Text>
-                                                {category.description > 100 ?
-                                                    <>{category.description.slice(0, 100) + '....'} <Link to={`/courses/${category.id}`}>See Details</Link></>
-                                                    :
-                                                    <>{category.description}</>
-                                                }
-                                            </Card.Text>
-                                            <Button variant="light"> <Link to={`/courses/${category.id}`}>See Details</Link></Button>
-                                        </Card.Body>
-                                    </Card>
+                                    <div className='col-sm-12 col-lg-4'>
+                                        <Card style={{ width: '18rem' }} key={category.id}>
+                                            <Card.Img variant="top" src="holder.js/100px180" />
+                                            <Card.Body>
+                                                <Card.Title>
+                                                    {category.name}
+                                                </Card.Title>
+                                                <Card.Text>
+                                                    {category.description > 100 ?
+                                                        <>{category.description.slice(0, 100) + '....'} <Link to={`/courses/${category.id}`}>See Details</Link></>
+                                                        :
+                                                        <>{category.description}</>
+                                                    }
+                                                </Card.Text>
+                                                <Button variant="light"> <Link to={`/courses/${category.id}`}>See Details</Link></Button>
+                                            </Card.Body>
+                                        </Card>
+                                    </div>
+
                                 )
                             }
                         </div>

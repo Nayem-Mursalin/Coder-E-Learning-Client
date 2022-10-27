@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import ReactToPdf from 'react-to-pdf';
-import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
 const Category = () => {
