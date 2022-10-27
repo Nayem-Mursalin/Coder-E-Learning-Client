@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-
+    const [error, setError] = useState('');
     const { providerLogin, signIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
 
@@ -34,9 +34,11 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                setError('');
             })
             .catch(error => {
                 console.error(error);
+                setError(error.message);
             })
             .finally(() => {
 
@@ -61,7 +63,7 @@ const Login = () => {
                     Login
                 </Button>
                 <Form.Text className="text-danger">
-
+                    {error}
                 </Form.Text>
             </Form>
             <button onClick={handleGoogleSignIn}>Google Login</button>
