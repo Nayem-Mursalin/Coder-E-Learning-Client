@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
@@ -25,7 +25,7 @@ const Category = () => {
                     <ListGroup.Item>Price: ${course[0].price}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                    <Button variant='primary'>CheckOut</Button>
+                    <Button variant='warning'><Link to={`/checkout/${course[0].id}`}>CheckOut</Link></Button>
                 </Card.Body>
             </Card>
         </div>

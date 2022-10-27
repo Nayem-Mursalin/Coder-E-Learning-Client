@@ -35,7 +35,7 @@ const Courses = () => {
                                         <Card.Img variant="top" src="holder.js/100px180" />
                                         <Card.Body>
                                             <Card.Title>
-                                                <Link to={`/category/${category.id}`}>{category.name}</Link>
+                                                {category.name}
                                             </Card.Title>
                                             <Card.Text>
                                                 {category.description > 100 ?
@@ -44,7 +44,7 @@ const Courses = () => {
                                                     <>{category.description}</>
                                                 }
                                             </Card.Text>
-                                            <Button variant="primary"> <Link to={`/courses/${category.id}`}>Get Premium Access</Link></Button>
+                                            <Button variant="light"> <Link to={`/courses/${category.id}`}>Get Premium Access</Link></Button>
                                         </Card.Body>
                                     </Card>
                                 )
@@ -53,7 +53,7 @@ const Courses = () => {
                     </div>
                 </Col>
             </Row>
-        </Container>
+        </Container >
 
     );
 };

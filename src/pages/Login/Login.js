@@ -1,15 +1,17 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { providerLogin, signIn } = useContext(AuthContext);
+    const { providerLogin, signIn, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
@@ -21,9 +23,31 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
+                navigate(from, { replace: true })
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
     const handleSubmmit = (event) => {
@@ -38,14 +62,19 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate(from, { replace: true })
+                if (user.emailVarfied) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error("Your Email is not Varified. Please verify your Email Adress");
+                }
             })
             .catch(error => {
                 console.error(error);
                 setError(error.message);
             })
             .finally(() => {
-
+                setLoading(false);
             })
 
     }
@@ -70,9 +99,10 @@ const Login = () => {
                     {error}
                 </Form.Text>
             </Form>
-            <button onClick={handleGoogleSignIn}>Google Login</button>
+            <Button variant='warning' onClick={handleGoogleSignIn}>Google Login</Button>
+            <Button variant='warning' onClick={handleGithubSignIn}>Github Signin</Button>
             <p>New to Coder E Learning? <Link to='/register'>Create a new Account</Link></p>
-        </div>
+        </div >
     );
 };
 
